@@ -43,7 +43,6 @@ class CartController extends GetxController {
       }
     }
     calculatedPrice();
-    print(cartitems[0].quntity);
   }
 
   bool isExist({required id}) {
@@ -56,8 +55,10 @@ class CartController extends GetxController {
   }
 
   calculatedPrice() {
+    double totalPrice = 0.0;
     for (int i = 0; i < cartitems.length; i++) {
-      total.value = cartitems[i].quntity! * cartitems[i].price!;
+      total.value += cartitems[i].quntity! * cartitems[i].price!;
     }
+    total.value = totalPrice;
   }
 }
